@@ -16,7 +16,7 @@ router.post('/email', async function(req, res, next) {
         to: req.body.to,
         from: process.env.FROM_EMAIL,
         subject: process.env.SUBJECT_EMAIL,
-        html: `<p>Company: ${req.body.company}</p>`,
+        html: process.env.EMAIL_BODY,
         attachments: req.body.attachments,
     };
     await sgMail.send(msg);
